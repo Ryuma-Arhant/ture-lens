@@ -139,11 +139,12 @@ function scoreRatingDistribution(product) {
 
 // 5. Return Policy (max 15)
 function scoreReturnPolicy(returnPolicyText = '') {
-  const lower = returnPolicyText.toLowerCase()
+  const safeText = returnPolicyText || ''
+  const lower = safeText.toLowerCase()
   const flags = RETURN_RED_FLAGS.filter(f => lower.includes(f))
   if (flags.length >= 2) return { score: 0, flags }
   if (flags.length === 1) return { score: 5, flags }
-  if (!returnPolicyText.trim()) return { score: 8, flags: [] }
+  if (!safeText.trim()) return { score: 8, flags: [] }
   return { score: 15, flags: [] }
 }
 
