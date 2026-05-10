@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install *)",
+      "Bash(echo \"DEMO_MODE=true\")",
+      "Bash(node --input-type=module -e ' *)",
+      "Bash(npm run *)",
+      "Bash(node src/index.js)",
+      "Bash(curl -s http://localhost:3001/health)",
+      "Bash(curl -s http://localhost:3001/api/demo-gallery)",
+      "Bash(node -e \"const d=require\\('fs'\\).readFileSync\\('/dev/stdin','utf-8'\\); const j=JSON.parse\\(d\\); console.log\\('Gallery count:', j.length\\); j.forEach\\(a=>console.log\\(a.verdict, a.trustScore, a.product?.title?.slice\\(0,35\\)\\)\\)\")",
+      "Bash(del temp_gallery.json)",
+      "WebFetch(domain:anakin.io)",
+      "Bash(npx kill-port *)",
+      "Bash(curl *)",
+      "Bash(node --input-type=module -e \"import{createInterface}from'readline';const l=[];const r=createInterface\\({input:process.stdin}\\);r.on\\('line',x=>l.push\\(x\\)\\);r.on\\('close',\\(\\)=>{const j=JSON.parse\\(l.join\\(''\\)\\);console.log\\('verdict:',j.verdict,'score:',j.trustScore,'id:',j.id\\)}\\)\")"
+    ]
+  }
+}
